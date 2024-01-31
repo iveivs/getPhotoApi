@@ -4,9 +4,10 @@ import { HistoryItem } from "./HistoryItem";
 
 export default function HistoryPhoto() {
 
-    const history = useContext(DataContext)
-    console.log('history HP' , history);
-    if (!history || !history.length) {
+    const {history} = useContext(DataContext)
+    // console.log('history HP' , history);
+    console.log(DataContext);
+    if (!history.length) {
         return <h5>Информация отсутствует</h5>
     }
     

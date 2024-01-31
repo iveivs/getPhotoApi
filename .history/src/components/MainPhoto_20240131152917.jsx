@@ -6,8 +6,8 @@ import { useContext, createContext } from "react"
 export const DataContext = createContext(null)
 
 export default function MainPhoto () {
-    const ACCESS_KEY = 'ZkEfTk8JzhdpcPmsO-kjebZMh50n5vFX1zm_LYvoMV4' // key1
-    // const ACCESS_KEY = 'AO618whAXmSZJKTg3Xq9cismWGCLC2BFkmOoitrTQo8' // key2
+    // const ACCESS_KEY = 'ZkEfTk8JzhdpcPmsO-kjebZMh50n5vFX1zm_LYvoMV4' // key1
+    const ACCESS_KEY = 'AO618whAXmSZJKTg3Xq9cismWGCLC2BFkmOoitrTQo8' // key2
     // const ACCESS_KEY = 'W95XwLtooev7UOVjBiDaNTBTyGNf-VnVDGYolEZg8ck'
     const [loading, setLoading] = useState(true)
     const [history, setHistory] = useState([])
@@ -16,9 +16,9 @@ export default function MainPhoto () {
         fetch(`https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}`)
         .then((response) => response.json())
         .then((data) =>  {
-            console.log("DATA", data);
             setHistory([...history, data])
-            console.log('history from FETCH',history);
+            createContext(history)
+            console.log('history', );
         })
         setLoading(false)
     }
@@ -33,7 +33,6 @@ export default function MainPhoto () {
             return elem
         })
         setHistory(tempHistory)
-        
     }
 
     useEffect(() => {
@@ -45,7 +44,7 @@ export default function MainPhoto () {
     console.log('history MP',history);
 
     return (
-        <div className="container">
+        <div >
             <DataContext.Provider value={ history }>
             {!!data && <h5 className="title-name">Photo by: {data.user.name}</h5>}
             {loading ? ( <Preloader />

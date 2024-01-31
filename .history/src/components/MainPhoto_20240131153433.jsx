@@ -16,9 +16,7 @@ export default function MainPhoto () {
         fetch(`https://api.unsplash.com/photos/random?client_id=${ACCESS_KEY}`)
         .then((response) => response.json())
         .then((data) =>  {
-            console.log("DATA", data);
             setHistory([...history, data])
-            console.log('history from FETCH',history);
         })
         setLoading(false)
     }
@@ -33,7 +31,7 @@ export default function MainPhoto () {
             return elem
         })
         setHistory(tempHistory)
-        
+        console.log('history MP',history);
     }
 
     useEffect(() => {
@@ -45,7 +43,7 @@ export default function MainPhoto () {
     console.log('history MP',history);
 
     return (
-        <div className="container">
+        <div >
             <DataContext.Provider value={ history }>
             {!!data && <h5 className="title-name">Photo by: {data.user.name}</h5>}
             {loading ? ( <Preloader />

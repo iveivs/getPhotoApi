@@ -45,7 +45,7 @@ export default function MainPhoto () {
     console.log('history MP',history);
 
     return (
-        <div className="container">
+        <div >
             <DataContext.Provider value={ history }>
             {!!data && <h5 className="title-name">Photo by: {data.user.name}</h5>}
             {loading ? ( <Preloader />
