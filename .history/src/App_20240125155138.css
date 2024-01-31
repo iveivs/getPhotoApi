@@ -1,0 +1,9 @@
+.nav-wrapper {
+  padding-left: 40px;
+}
+.history__wrapper {
+  display: flex;
+  
+  flex-direction: row;
+  flex-wrap: wrap;
+}

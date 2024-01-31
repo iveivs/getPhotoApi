@@ -1,0 +1,8 @@
+.nav-wrapper {
+  padding-left: 40px;
+}
+history .history__wrapper {
+  display: none;
+  display: flex;
+  flex-direction: column;
+}
